@@ -22,6 +22,14 @@ peline {
             steps{ 
                 sh 'java -cp src application.test'
             }
+	
+        }
+	stage('Execute code')
+        { 
+            steps{ 
+                echo 'HelloWorld from GIIIITHBUB'
+            }
+	
         }
     }
 }
