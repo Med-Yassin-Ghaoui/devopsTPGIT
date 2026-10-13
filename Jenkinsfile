@@ -1,36 +1,36 @@
 pipeline {
     agent any
-    tools{ 
+
+    tools {
         jdk 'JDK21'
     }
-    stages { 
-        stage('Checkout code')
-        { 
-            steps { 
+
+    stages {
+        stage('Checkout code') {
+            steps {
                 git branch: 'master', url: 'https://github.com/Med-Yassin-Ghaoui/devopsTPGIT'
             }
         }
-        stage('Compile code')
-        { 
-            steps { 
-                sh '''cd src
-                javac application/test.java'''
+
+        stage('Compile code') {
+            steps {
+                sh '''
+                    cd src
+                    javac application/test.java
+                '''
             }
         }
-        stage('Execute code')
-        { 
-            steps{ 
+
+        stage('Execute code') {
+            steps {
                 sh 'java -cp src application.test'
             }
-	
         }
-	stage('Execute code')
-        { 
-            steps{ 
-                echo 'HelloWorld from GIIIITHBUB'
+
+        stage('Hello message') {
+            steps {
+                echo 'HelloWorld from GITHUB'
             }
-	
         }
     }
 }
-
