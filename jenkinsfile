@@ -1,0 +1,28 @@
+peline {
+    agent any
+    tools{ 
+        jdk 'JDK21'
+    }
+    stages { 
+        stage('Checkout code')
+        { 
+            steps { 
+                git branch: 'master', url: 'https://github.com/Med-Yassin-Ghaoui/devopsTPGIT'
+            }
+        }
+        stage('Compile code')
+        { 
+            steps { 
+                sh '''cd src
+                javac application/test.java'''
+            }
+        }
+        stage('Execute code')
+        { 
+            steps{ 
+                sh 'java -cp src application.test'
+            }
+        }
+    }
+}
+
